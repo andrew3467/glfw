@@ -906,7 +906,7 @@ static GLFWbool initExtensions(void)
     }
 
     // Update the key code LUT
-    // FIXME: We should listen to XkbMapNotify events to track changes to
+    // FIXME: We should listen to XkbMapNotify Events to track changes to
     // the keyboard mapping.
     createKeyTables();
 
@@ -1045,7 +1045,7 @@ static Window createHelperWindow(void)
                          CWEventMask, &wa);
 }
 
-// Create the pipe for empty events without assumuing the OS has pipe2(2)
+// Create the pipe for empty Events without assumuing the OS has pipe2(2)
 //
 static GLFWbool createEmptyEventPipe(void)
 {

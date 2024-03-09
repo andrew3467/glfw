@@ -23,7 +23,7 @@
 //
 //========================================================================
 //
-// This test is intended to verify that posting of empty events works
+// This test is intended to verify that posting of empty Events works
 //
 //========================================================================
 

@@ -1978,7 +1978,7 @@ typedef void (* GLFWdropfun)(GLFWwindow* window, int path_count, const char* pat
  *
  *  @param[in] monitor The monitor that was connected or disconnected.
  *  @param[in] event One of `GLFW_CONNECTED` or `GLFW_DISCONNECTED`.  Future
- *  releases may add more events.
+ *  releases may add more Events.
  *
  *  @sa @ref monitor_event
  *  @sa @ref glfwSetMonitorCallback
@@ -1999,7 +1999,7 @@ typedef void (* GLFWmonitorfun)(GLFWmonitor* monitor, int event);
  *
  *  @param[in] jid The joystick that was connected or disconnected.
  *  @param[in] event One of `GLFW_CONNECTED` or `GLFW_DISCONNECTED`.  Future
- *  releases may add more events.
+ *  releases may add more Events.
  *
  *  @sa @ref joystick_event
  *  @sa @ref glfwSetJoystickCallback
@@ -3349,7 +3349,7 @@ GLFWAPI const char* glfwGetWindowTitle(GLFWwindow* window);
  *  GLFW_PLATFORM_ERROR.
  *
  *  @remark @macos The window title will not be updated until the next time you
- *  process events.
+ *  process Events.
  *
  *  @thread_safety This function must only be called from the main thread.
  *
@@ -4345,7 +4345,7 @@ GLFWAPI GLFWwindowrefreshfun glfwSetWindowRefreshCallback(GLFWwindow* window, GL
  *  called when the window gains or loses input focus.
  *
  *  After the focus callback is called for a window that lost input focus,
- *  synthetic key and mouse button release events will be generated for all such
+ *  synthetic key and mouse button release Events will be generated for all such
  *  that had been pressed.  For more information, see @ref glfwSetKeyCallback
  *  and @ref glfwSetMouseButtonCallback.
  *
@@ -4495,11 +4495,11 @@ GLFWAPI GLFWframebuffersizefun glfwSetFramebufferSizeCallback(GLFWwindow* window
  */
 GLFWAPI GLFWwindowcontentscalefun glfwSetWindowContentScaleCallback(GLFWwindow* window, GLFWwindowcontentscalefun callback);
 
-/*! @brief Processes all pending events.
+/*! @brief Processes all pending Events.
  *
- *  This function processes only those events that are already in the event
- *  queue and then returns immediately.  Processing events will cause the window
- *  and input callbacks associated with those events to be called.
+ *  This function processes only those Events that are already in the event
+ *  queue and then returns immediately.  Processing Events will cause the window
+ *  and input callbacks associated with those Events to be called.
  *
  *  On some platforms, a window move, resize or menu operation will cause event
  *  processing to block.  This is due to how event processing is designed on
@@ -4509,9 +4509,9 @@ GLFWAPI GLFWwindowcontentscalefun glfwSetWindowContentScaleCallback(GLFWwindow* 
  *
  *  Do not assume that callbacks you set will _only_ be called in response to
  *  event processing functions like this one.  While it is necessary to poll for
- *  events, window systems that require GLFW to register callbacks of its own
- *  can pass events to GLFW in response to many window system function calls.
- *  GLFW will pass those events on to the application callbacks before
+ *  Events, window systems that require GLFW to register callbacks of its own
+ *  can pass Events to GLFW in response to many window system function calls.
+ *  GLFW will pass those Events on to the application callbacks before
  *  returning.
  *
  *  Event processing is not required for joystick input to work.
@@ -4523,7 +4523,7 @@ GLFWAPI GLFWwindowcontentscalefun glfwSetWindowContentScaleCallback(GLFWwindow* 
  *
  *  @thread_safety This function must only be called from the main thread.
  *
- *  @sa @ref events
+ *  @sa @ref Events
  *  @sa @ref glfwWaitEvents
  *  @sa @ref glfwWaitEventsTimeout
  *
@@ -4533,16 +4533,16 @@ GLFWAPI GLFWwindowcontentscalefun glfwSetWindowContentScaleCallback(GLFWwindow* 
  */
 GLFWAPI void glfwPollEvents(void);
 
-/*! @brief Waits until events are queued and processes them.
+/*! @brief Waits until Events are queued and processes them.
  *
  *  This function puts the calling thread to sleep until at least one event is
- *  available in the event queue.  Once one or more events are available,
- *  it behaves exactly like @ref glfwPollEvents, i.e. the events in the queue
- *  are processed and the function then returns immediately.  Processing events
- *  will cause the window and input callbacks associated with those events to be
+ *  available in the event queue.  Once one or more Events are available,
+ *  it behaves exactly like @ref glfwPollEvents, i.e. the Events in the queue
+ *  are processed and the function then returns immediately.  Processing Events
+ *  will cause the window and input callbacks associated with those Events to be
  *  called.
  *
- *  Since not all events are associated with callbacks, this function may return
+ *  Since not all Events are associated with callbacks, this function may return
  *  without a callback having been called even if you are monitoring all
  *  callbacks.
  *
@@ -4554,9 +4554,9 @@ GLFWAPI void glfwPollEvents(void);
  *
  *  Do not assume that callbacks you set will _only_ be called in response to
  *  event processing functions like this one.  While it is necessary to poll for
- *  events, window systems that require GLFW to register callbacks of its own
- *  can pass events to GLFW in response to many window system function calls.
- *  GLFW will pass those events on to the application callbacks before
+ *  Events, window systems that require GLFW to register callbacks of its own
+ *  can pass Events to GLFW in response to many window system function calls.
+ *  GLFW will pass those Events on to the application callbacks before
  *  returning.
  *
  *  Event processing is not required for joystick input to work.
@@ -4568,7 +4568,7 @@ GLFWAPI void glfwPollEvents(void);
  *
  *  @thread_safety This function must only be called from the main thread.
  *
- *  @sa @ref events
+ *  @sa @ref Events
  *  @sa @ref glfwPollEvents
  *  @sa @ref glfwWaitEventsTimeout
  *
@@ -4578,18 +4578,18 @@ GLFWAPI void glfwPollEvents(void);
  */
 GLFWAPI void glfwWaitEvents(void);
 
-/*! @brief Waits with timeout until events are queued and processes them.
+/*! @brief Waits with timeout until Events are queued and processes them.
  *
  *  This function puts the calling thread to sleep until at least one event is
  *  available in the event queue, or until the specified timeout is reached.  If
- *  one or more events are available, it behaves exactly like @ref
- *  glfwPollEvents, i.e. the events in the queue are processed and the function
- *  then returns immediately.  Processing events will cause the window and input
- *  callbacks associated with those events to be called.
+ *  one or more Events are available, it behaves exactly like @ref
+ *  glfwPollEvents, i.e. the Events in the queue are processed and the function
+ *  then returns immediately.  Processing Events will cause the window and input
+ *  callbacks associated with those Events to be called.
  *
  *  The timeout value must be a positive finite number.
  *
- *  Since not all events are associated with callbacks, this function may return
+ *  Since not all Events are associated with callbacks, this function may return
  *  without a callback having been called even if you are monitoring all
  *  callbacks.
  *
@@ -4601,9 +4601,9 @@ GLFWAPI void glfwWaitEvents(void);
  *
  *  Do not assume that callbacks you set will _only_ be called in response to
  *  event processing functions like this one.  While it is necessary to poll for
- *  events, window systems that require GLFW to register callbacks of its own
- *  can pass events to GLFW in response to many window system function calls.
- *  GLFW will pass those events on to the application callbacks before
+ *  Events, window systems that require GLFW to register callbacks of its own
+ *  can pass Events to GLFW in response to many window system function calls.
+ *  GLFW will pass those Events on to the application callbacks before
  *  returning.
  *
  *  Event processing is not required for joystick input to work.
@@ -4617,7 +4617,7 @@ GLFWAPI void glfwWaitEvents(void);
  *
  *  @thread_safety This function must only be called from the main thread.
  *
- *  @sa @ref events
+ *  @sa @ref Events
  *  @sa @ref glfwPollEvents
  *  @sa @ref glfwWaitEvents
  *
@@ -4637,7 +4637,7 @@ GLFWAPI void glfwWaitEventsTimeout(double timeout);
  *
  *  @thread_safety This function may be called from any thread.
  *
- *  @sa @ref events
+ *  @sa @ref Events
  *  @sa @ref glfwWaitEvents
  *  @sa @ref glfwWaitEventsTimeout
  *
@@ -5158,8 +5158,8 @@ GLFWAPI void glfwSetCursor(GLFWwindow* window, GLFWcursor* cursor);
  *  [character callback](@ref glfwSetCharCallback) instead.
  *
  *  When a window loses input focus, it will generate synthetic key release
- *  events for all pressed keys with associated key tokens.  You can tell these
- *  events from user-generated events by the fact that the synthetic ones are
+ *  Events for all pressed keys with associated key tokens.  You can tell these
+ *  Events from user-generated Events by the fact that the synthetic ones are
  *  generated after the focus loss event has been processed, i.e. after the
  *  [window focus callback](@ref glfwSetWindowFocusCallback) has been called.
  *
@@ -5168,7 +5168,7 @@ GLFWAPI void glfwSetCursor(GLFWwindow* window, GLFWcursor* cursor);
  *  a GLFW key token.  Such keys have `key` set to `GLFW_KEY_UNKNOWN`, their
  *  state is not saved and so it cannot be queried with @ref glfwGetKey.
  *
- *  Sometimes GLFW needs to generate synthetic key events, in which case the
+ *  Sometimes GLFW needs to generate synthetic key Events, in which case the
  *  scancode may be zero.
  *
  *  @param[in] window The window whose callback to set.
@@ -5288,8 +5288,8 @@ GLFWAPI GLFWcharmodsfun glfwSetCharModsCallback(GLFWwindow* window, GLFWcharmods
  *  is called when a mouse button is pressed or released.
  *
  *  When a window loses input focus, it will generate synthetic mouse button
- *  release events for all pressed mouse buttons.  You can tell these events
- *  from user-generated events by the fact that the synthetic ones are generated
+ *  release Events for all pressed mouse buttons.  You can tell these Events
+ *  from user-generated Events by the fact that the synthetic ones are generated
  *  after the focus loss event has been processed, i.e. after the
  *  [window focus callback](@ref glfwSetWindowFocusCallback) has been called.
  *
@@ -5762,8 +5762,8 @@ GLFWAPI int glfwJoystickIsGamepad(int jid);
  *  currently set callback.  This is called when a joystick is connected to or
  *  disconnected from the system.
  *
- *  For joystick connection and disconnection events to be delivered on all
- *  platforms, you need to call one of the [event processing](@ref events)
+ *  For joystick connection and disconnection Events to be delivered on all
+ *  platforms, you need to call one of the [event processing](@ref Events)
  *  functions.  Joystick disconnection may also be detected and the callback
  *  called by joystick functions.  The function will then return whatever it
  *  returns if the joystick is not present.

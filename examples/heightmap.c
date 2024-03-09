@@ -430,7 +430,7 @@ int main(int argc, char** argv)
         exit(EXIT_FAILURE);
     }
 
-    /* Register events callback */
+    /* Register Events callback */
     glfwSetKeyCallback(window, key_callback);
 
     glfwMakeContextCurrent(window);
@@ -488,7 +488,7 @@ int main(int argc, char** argv)
         glClear(GL_COLOR_BUFFER_BIT);
         glDrawElements(GL_LINES, 2* MAP_NUM_LINES , GL_UNSIGNED_INT, 0);
 
-        /* display and process events through callbacks */
+        /* display and process Events through callbacks */
         glfwSwapBuffers(window);
         glfwPollEvents();
         /* Check the frame rate and update the heightmap if needed */

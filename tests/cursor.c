@@ -227,7 +227,7 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
 
         case GLFW_KEY_W:
             wait_events = !wait_events;
-            printf("(( %sing for events ))\n", wait_events ? "wait" : "poll");
+            printf("(( %sing for Events ))\n", wait_events ? "wait" : "poll");
             break;
 
         case GLFW_KEY_T:

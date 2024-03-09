@@ -147,7 +147,7 @@ typedef struct _GLFWwindowNS
     GLFWbool        occluded;
     GLFWbool        scaleFramebuffer;
 
-    // Cached window properties to filter out duplicate events
+    // Cached window properties to filter out duplicate Events
     int             width, height;
     int             fbWidth, fbHeight;
     float           xscale, yscale;

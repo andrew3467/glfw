@@ -23,7 +23,7 @@
 //
 //========================================================================
 //
-// This test is intended to verify that waiting for events with timeout works
+// This test is intended to verify that waiting for Events with timeout works
 //
 //========================================================================
 

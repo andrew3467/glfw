@@ -426,7 +426,7 @@ typedef struct _GLFWwindowWin32
     GLFWbool            keymenu;
     GLFWbool            showDefault;
 
-    // Cached size used to filter out duplicate events
+    // Cached size used to filter out duplicate Events
     int                 width, height;
 
     // The last received cursor position, regardless of source

@@ -56,7 +56,7 @@ typedef struct
 
 static void usage(void)
 {
-    printf("Usage: events [-f] [-h] [-n WINDOWS]\n");
+    printf("Usage: Events [-f] [-h] [-n WINDOWS]\n");
     printf("Options:\n");
     printf("  -f use full screen\n");
     printf("  -h show this help\n");

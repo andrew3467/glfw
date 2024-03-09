@@ -834,7 +834,7 @@ int _glfwInitWayland(void)
     // Sync so we got all registry objects
     wl_display_roundtrip(_glfw.wl.display);
 
-    // Sync so we got all initial output events
+    // Sync so we got all initial output Events
     wl_display_roundtrip(_glfw.wl.display);
 
     if (_glfw.wl.libdecor.handle)

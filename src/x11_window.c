@@ -493,7 +493,7 @@ static void releaseCursor(void)
     XUngrabPointer(_glfw.x11.display, CurrentTime);
 }
 
-// Enable XI2 raw mouse motion events
+// Enable XI2 raw mouse motion Events
 //
 static void enableRawMouseMotion(_GLFWwindow* window)
 {
@@ -508,7 +508,7 @@ static void enableRawMouseMotion(_GLFWwindow* window)
     XISelectEvents(_glfw.x11.display, _glfw.x11.root, &em, 1);
 }
 
-// Disable XI2 raw mouse motion events
+// Disable XI2 raw mouse motion Events
 //
 static void disableRawMouseMotion(_GLFWwindow* window)
 {
@@ -1248,7 +1248,7 @@ static void processEvent(XEvent *event)
 
             if (window->x11.ic)
             {
-                // HACK: Do not report the key press events duplicated by XIM
+                // HACK: Do not report the key press Events duplicated by XIM
                 //       Duplicate key releases are filtered out implicitly by
                 //       the GLFW key repeat logic in _glfwInputKey
                 //       A timestamp per key is used to handle simultaneous keys
@@ -1319,10 +1319,10 @@ static void processEvent(XEvent *event)
 
             if (!_glfw.x11.xkb.detectable)
             {
-                // HACK: Key repeat events will arrive as KeyRelease/KeyPress
+                // HACK: Key repeat Events will arrive as KeyRelease/KeyPress
                 //       pairs with similar or identical time stamps
                 //       The key repeat logic in _glfwInputKey expects only key
-                //       presses to repeat, so detect and discard release events
+                //       presses to repeat, so detect and discard release Events
                 if (XEventsQueued(_glfw.x11.display, QueuedAfterReading))
                 {
                     XEvent next;
@@ -1332,7 +1332,7 @@ static void processEvent(XEvent *event)
                         next.xkey.window == event->xkey.window &&
                         next.xkey.keycode == keycode)
                     {
-                        // HACK: The time of repeat events sometimes doesn't
+                        // HACK: The time of repeat Events sometimes doesn't
                         //       match that of the press event, so add an
                         //       epsilon
                         //       Toshiyuki Takahashi can press a button
@@ -1364,7 +1364,7 @@ static void processEvent(XEvent *event)
             else if (event->xbutton.button == Button3)
                 _glfwInputMouseClick(window, GLFW_MOUSE_BUTTON_RIGHT, GLFW_PRESS, mods);
 
-            // Modern X provides scroll events as mouse button presses
+            // Modern X provides scroll Events as mouse button presses
             else if (event->xbutton.button == Button4)
                 _glfwInputScroll(window, 0.0, 1.0);
             else if (event->xbutton.button == Button5)
@@ -1503,7 +1503,7 @@ static void processEvent(XEvent *event)
             int xpos = event->xconfigure.x;
             int ypos = event->xconfigure.y;
 
-            // NOTE: ConfigureNotify events from the server are in local
+            // NOTE: ConfigureNotify Events from the server are in local
             //       coordinates, so if we are reparented we need to translate
             //       the position into root (screen) coordinates
             if (!event->xany.send_event && window->x11.parent != _glfw.x11.root)
@@ -1560,7 +1560,7 @@ static void processEvent(XEvent *event)
                 else if (protocol == _glfw.x11.NET_WM_PING)
                 {
                     // The window manager is pinging the application to ensure
-                    // it's still responding to events
+                    // it's still responding to Events
 
                     XEvent reply = *event;
                     reply.xclient.window = _glfw.x11.root;
@@ -1741,7 +1741,7 @@ static void processEvent(XEvent *event)
             if (event->xfocus.mode == NotifyGrab ||
                 event->xfocus.mode == NotifyUngrab)
             {
-                // Ignore focus events from popup indicator windows, window menu
+                // Ignore focus Events from popup indicator windows, window menu
                 // key chords and window dragging
                 return;
             }
@@ -1763,7 +1763,7 @@ static void processEvent(XEvent *event)
             if (event->xfocus.mode == NotifyGrab ||
                 event->xfocus.mode == NotifyUngrab)
             {
-                // Ignore focus events from popup indicator windows, window menu
+                // Ignore focus Events from popup indicator windows, window menu
                 // key chords and window dragging
                 return;
             }

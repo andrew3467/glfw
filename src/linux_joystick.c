@@ -73,7 +73,7 @@ static void handleAbsEvent(_GLFWjoystick* js, int code, int value)
         const int axis = (code - ABS_HAT0X) % 2;
         int* state = js->linjs.hats[hat];
 
-        // NOTE: Looking at several input drivers, it seems all hat events use
+        // NOTE: Looking at several input drivers, it seems all hat Events use
         //       -1 for left / up, 0 for centered and 1 for right / down
         if (value == 0)
             state[axis] = 0;
@@ -156,7 +156,7 @@ static GLFWbool openJoystickDevice(const char* path)
         return GLFW_FALSE;
     }
 
-    // Ensure this device supports the events expected of a joystick
+    // Ensure this device supports the Events expected of a joystick
     if (!isBitSet(EV_ABS, evBits))
     {
         close(linjs.fd);
@@ -385,7 +385,7 @@ void _glfwTerminateJoysticksLinux(void)
 
 GLFWbool _glfwPollJoystickLinux(_GLFWjoystick* js, int mode)
 {
-    // Read all queued events (non-blocking)
+    // Read all queued Events (non-blocking)
     for (;;)
     {
         struct input_event e;

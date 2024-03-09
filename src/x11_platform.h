@@ -534,7 +534,7 @@ typedef struct _GLFWwindowX11
     // Whether the visual supports framebuffer transparency
     GLFWbool        transparent;
 
-    // Cached position and size used to filter out duplicate events
+    // Cached position and size used to filter out duplicate Events
     int             width, height;
     int             xpos, ypos;
 
@@ -544,7 +544,7 @@ typedef struct _GLFWwindowX11
     int             warpCursorPosX, warpCursorPosY;
 
     // The time of the last KeyPress event per keycode, for discarding
-    // duplicate key events generated for some keys by ibus
+    // duplicate key Events generated for some keys by ibus
     Time            keyPressTimes[256];
 } _GLFWwindowX11;
 

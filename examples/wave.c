@@ -313,7 +313,7 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 
 
 //========================================================================
-// Callback function for mouse button events
+// Callback function for mouse button Events
 //========================================================================
 
 void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
@@ -332,7 +332,7 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 
 
 //========================================================================
-// Callback function for cursor motion events
+// Callback function for cursor motion Events
 //========================================================================
 
 void cursor_position_callback(GLFWwindow* window, double x, double y)
@@ -349,7 +349,7 @@ void cursor_position_callback(GLFWwindow* window, double x, double y)
 
 
 //========================================================================
-// Callback function for scroll events
+// Callback function for scroll Events
 //========================================================================
 
 void scroll_callback(GLFWwindow* window, double x, double y)
@@ -361,7 +361,7 @@ void scroll_callback(GLFWwindow* window, double x, double y)
 
 
 //========================================================================
-// Callback function for framebuffer resize events
+// Callback function for framebuffer resize Events
 //========================================================================
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
